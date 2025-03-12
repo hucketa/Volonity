@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOLONITY</title>
+    <link rel="stylesheet" href="{% static 'css/catalog_service.css' %}">
+</head>
+<body>
+    <header>
+        <h1>VOLONITY</h1>
+        <span><a href="{% url 'profile_needy' %}">ПРОФІЛЬ</a></span>
+    </header>
+
+    <main>
+        <h2>ВИБЕРІТЬ ПІДХОДЯЩОГО ДЛЯ ВАС СПЕЦІАЛІСТА!</h2>
+        <div class="cards-container">
+            {% for service in services %}
+            <div class="card">
+                <img src="{{ service.id_volunteer.photo.url }}" alt="Фото волонтера">
+                <p>{{ service.volunteer.photo.url }}</p>
+                <p><strong>ПІБ волонтера:</strong> {{ service.id_volunteer.pib_volunteer }}</p>
+                <p><strong>Код заявки:</strong> {{ service.code_request.code_request }}</p>
+                <p><strong>Опис проблеми:</strong> {{ service.code_request.problem_description }}</p>
+                <p><strong>Дата виконання:</strong> {{ service.execution_date }}</p>
+                <div class="buttons">
+                    <button class="cancel">ВІДМІНИТИ</button>
+                    <button class="confirm">ПІДТВЕРДИТИ</button>
+                </div>
+            </div>
+            {% empty %}
+                <p>Немає доступних послуг.</p>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>
+

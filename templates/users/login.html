@@ -1,16 +1,27 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Вхід</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вхід - Volonity</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 <body>
-    <h2>Вхід</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Увійти</button>
-    </form>
-    <a href="{% url 'register' %}">Немає акаунта? Зареєструватися</a>
+    <div class="container">
+        <div class="logo">VOLONITY</div>
+        <div class="auth-links">ВХІД / <a href="{% url 'register' %}" class="no-underline"><span>РЕЄСТРАЦІЯ</span></a></div>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="email" name="email" placeholder="EMAIL" required>
+            <input type="password" name="password" placeholder="PASSWORD" required>
+            <button class="login-btn" type="submit">ВХІД</button>
+        </form>
+        
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+    </div>
 </body>
 </html>
+

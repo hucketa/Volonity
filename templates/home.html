@@ -1,12 +1,38 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Головна</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volonity</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
 </head>
 <body>
-    <h1>Ласкаво просимо!</h1>
-    <a href="{% url 'register' %}">Реєстрація</a> |
-    <a href="{% url 'login' %}">Вхід</a>
+    <div class="container">
+        <div class="left">
+            <h1 class="title">VOLONITY</h1>
+            <h2 class="subtitle">ХОЧЕТЕ ДОЛУЧИТИСЯ?</h2>
+              <div class="buttons">
+                <a href="{% url 'login' %}"><button class="btn">ВХІД</button></a>
+                <a href="{% url 'register' %}"><button class="btn">РЕЄСТРАЦІЯ</button></a>
+            </div>
+            </div>
+        </div>
+        <div class="right">
+            <p class="text">
+                Волонтерство відкриває нові горизонти, дає змогу здобути безцінний досвід,
+                познайомитися з однодумцями та відчути силу єдності. Це шанс не тільки допомогти іншим,
+                а й особисто зростати, знаходити натхнення та змінювати світ навколо себе.
+            </p>
+        </div>
+    </div>
+
+    <div class="decorations">
+        <div class="circle"></div>
+        <div class="square"></div>
+        <div class="circle"></div>
+        <div class="square"></div>
+    </div>
 </body>
 </html>
+

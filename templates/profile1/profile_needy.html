@@ -1,0 +1,33 @@
+{% load static %}
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профіль волонтера</title>
+    <link rel="stylesheet" href="{% static 'css/profile_needy.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="logo-text">VOLONITY</span>
+            </div>
+        </header>
+        <div class="profile">
+                {% if needy_user.photo and needy_user.photo.url %}
+        <img src="{{ needy_user.photo.url }}" alt="Фото того хто просить допомогу" class="profile-photo">
+        {% else %}
+            <p>Фото не доступне</p>
+        {% endif %}
+            <div class="profile-info">
+                <p><strong>ПІБ:</strong> {{ needy_user.pib_needy }}</p>
+                <p><strong>Email:</strong> {{ needy_user.email }}</p>
+                <p><strong>Телефон:</strong> {{ needy_user.phone }}</p>
+                <p><strong>Логін:</strong> {{ needy_user.login }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+

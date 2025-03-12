@@ -1,12 +1,41 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Каталог</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volonity - Спеціалісти</title>
+    <link rel="stylesheet" href="{% static 'css/catalog.css' %}">
 </head>
 <body>
-    <h2>Каталог</h2>
-    <p>Тут буде список...</p>
-    <a href="{% url 'logout' %}">Вийти</a>
+    <header>
+        <div class="logo">
+            VOLONITY
+        </div>
+        <div class="profile">
+            <a href="{% url 'profile_volunteer' %}">&#128100; ПРОФІЛЬ</a>
+        </div>
+    </header>
+    <main>
+        <h1>ОБЕРІТЬ ПРОБЛЕМУ З ЯКОЮ МОЖЕТЕ ДОПОМОГТИ</h1>
+        <div class="specialists">
+           {% for request in requests %}
+    <div class="specialist-card">
+        <div class="info">
+            <strong>Опис проблеми:</strong> {{ request.problem_description }} <br>
+            <strong>Дата виконання:</strong> {{ request.execution_date }}
+        </div>
+        <div class="buttons">
+            <button class="report">СКАРГА</button>
+            <button class="help">ДОПОМОГА</button>
+        </div>
+    </div>
+{% empty %}
+    <p>Немає заявок</p>
+{% endfor %}
+        </div>
+    </main>
 </body>
 </html>
+
+
