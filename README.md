@@ -24,7 +24,7 @@ Volonity — це веб-застосунок на Django, створений д
 ### 1️⃣ Клонування репозиторію
 ```bash
 git clone https://github.com/hucketa/Volonity
-cd sswu
+cd Volonity
 ```
 
 ### 2️⃣ Створення віртуального середовища та встановлення залежностей
